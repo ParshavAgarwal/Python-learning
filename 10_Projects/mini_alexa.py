@@ -1,3 +1,11 @@
+#pip install pyttsx3
+#pip install SpeechRecognition
+#pip install wikipedia
+#pip install pyjokes
+#pip install pyaudio
+#pip install web-browser
+#pip install DateTime
+
 import speech_recognition as sr
 import pyttsx3
 import datetime
@@ -5,7 +13,7 @@ import webbrowser
 import wikipedia
 import pyjokes
 
-# Initialize the text-to-speech engine
+# Initializing the text-to-speech engine
 engine = pyttsx3.init()
 
 # Function to make Alexa speak
@@ -13,10 +21,10 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
-# Function to take voice command from the user
+# Function to take voice command
 def take_command():
     r = sr.Recognizer() 
-    mic_index = 7  # <--- Replacing current microphone to chosen one
+    mic_index = 7  # <--- Replacing current microphone with the chosen one
     with sr.Microphone(device_index=mic_index) as source:
         print("Listening...")
         r.adjust_for_ambient_noise(source)
@@ -27,18 +35,22 @@ def take_command():
         print("Recognizing...")
         query = r.recognize_google(audio, language="en-in")
         print(f"You said: {query}\n")
+        
     except sr.UnknownValueError:
         print("Speech Recognition could not understand audio")
         speak("Sorry, I did not understand that. Please repeat.")
         return "none"
+        
     except sr.RequestError as e:
         print(f"Could not request results; {e}")
         speak("Sorry, my speech service is down.")
         return "none"
+        
     except Exception as e:
         print(f"Unexpected error: {e}")
         speak("Sorry, I encountered an unexpected error.")
         return "none"
+    
     return query.lower()
 
 # Main program
