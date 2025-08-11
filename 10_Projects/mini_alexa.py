@@ -1,8 +1,3 @@
-#pip install speechrecognition 
-#pip install pyttsx3 
-#pip install wikipedia
-#pip install pyjokes
-#pip install pyaudio
 
 import speech_recognition as sr
 import pyttsx3
@@ -101,3 +96,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
