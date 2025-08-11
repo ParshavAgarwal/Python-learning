@@ -1,3 +1,9 @@
+#pip install speechrecognition 
+#pip install pyttsx3 
+#pip install wikipedia
+#pip install pyjokes
+#pip install pyaudio
+
 import speech_recognition as sr
 import pyttsx3
 import datetime
@@ -5,7 +11,7 @@ import webbrowser
 import wikipedia
 import pyjokes
 
-# Initialize the text-to-speech engine
+# Initializing the text-to-speech engine
 engine = pyttsx3.init()
 
 # Function to make Alexa speak
@@ -13,7 +19,7 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
-# Function to take voice command from the user
+# Function to take voice command
 def take_command():
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -93,4 +99,5 @@ def main():
             speak("Sorry, I can't do that yet.")
 
 if __name__ == "__main__":
+
     main()
